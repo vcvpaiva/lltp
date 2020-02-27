@@ -1,0 +1,48 @@
+Consideremos um cálculo proposicional dado por esquemas de axiomas e Modus Ponens como única regra. 
+
+Seja E um esquema de axiomas. Então E tem a forma
+(A1 > (A2 > ...> (Am >B)...)), para algum m>=0, onde B não é mais uma implicação.
+
+Dizemos então que m é o grau implicativo do esquema. 
+Por exempo, o Ax 2 tem GI= 3, o Ax 4 tem GI=1, etc.
+
+As regras de abreviação do formato Rn,m são receitas de construção de trechos de deduções consistindo de m+1 linhas, 
+a primeira contendo um caso do axioma n e as demais m linhas obtidas por m aplicações de MP. 
+Observe-se que m sera sempre menor ou igual ao grau implicativo do axioma n. No cálculo ora estudado, temos as seguintes regras:
+
+
+R1,1 :    A/B>A 
+R2,1 :    (A>B) / ((A> (B>C))>(A>C))
+R2,2 :   (A>B), (A> (B>C)) / (A>C)
+R2,3 :   (A>B), (A> (B>C)), A / C
+R4,1 :    (A&B) / A
+R5,1 :   (A&B) / B
+R6,1 :   A / (B> (A&B)) 
+R6,2 :   A, B / (A&B)
+R7,1 :    A / (A v B)
+R8,1 :   B / (A v B)
+R9,1 :   (A>C) / ((B>C)> ((AvB)>C))
+R9,2 :    (A>C) , (B>C) / ((AvB)>C) 
+R9,3 :   (A>C), (B>C) , (AvB) /  C
+R10,1:  (A>B)/((A>~B) > ~A)) 
+R10,2:  (A>B),(A>~B) / ~A))   
+R11i,1:  ~A / (A>B)
+R11i,2:  ~A, A /B
+R11c,1:   ~~A / A
+
+===================================================
+Fica assim a receita de [*5]
+
+[*5]                          ((A&B)>C) !- (A>(B>C))
+
+1) ((A&B)>C)                                                         HIP
+3) (B>((A&B)>C))                                                  1 R1,1
+5) A> (B> ((A&B)>C)))                                           3 R1,1
+6) ((B>(A&B)) > ((B>((A&B)>C)) > (B>C)))                Ax 2
+8) (A> ((B>(A&B)) > ((B>((A&B)>C)) > (B>C))))         6 R1,1
+10)  (A>(B>(A&B)))                                                Ax 6
+12) (A> ((B>((A&B)>C)) > (B>C)))                           10, 8 R2,2
+14)  (A> (B> ((A&B)>C)))                                      3, R1,1
+17)  (A>(B>C))                                                     14,12 :R2,2
+
+
