@@ -12,5 +12,6 @@ arXiv preprint arXiv:1904.06850, 01 February 2019.
 
 Recently I started working with Andrea Loparic on reproving the Kleene "little theorems" by hand, 
 to show where linearity constraints need to be used. 
+I am also making use of Ayberk Tosun's sequent prover https://github.com/ayberkt/sequents.
 
 
